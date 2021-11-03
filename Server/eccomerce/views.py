@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import User
 
 # Create your views here.
 
@@ -10,3 +11,7 @@ def productos(request):
 
 def pago(request):
     return render(request, 'eccomerce/pago.html')
+
+def usuarios(request):
+    user = User.objects.all()
+    return render(request, 'eccomerce/usuarios.html', {"datos":user})
