@@ -18,9 +18,9 @@ def usuarios(request):
 
 def contacto(request):
     datos=request.GET
-    name=datos["firstName"]
-    last_name=datos["lastName"]
-    user_name=datos["userName"]
-    city=datos["nameCity"]
-    print(name,last_name,user_name,city)
+    #name=datos["firstName"]
+    #last_name=datos["lastName"]
+    #user_name=datos["userName"]
+    #city=datos["nameCity"]
+    #print(name,last_name,user_name,city)
     return render(request, 'eccomerce/contacto.html', {"mensaje":"Datos Recibidos" })
