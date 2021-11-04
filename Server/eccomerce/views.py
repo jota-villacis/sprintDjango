@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from .models import User
 from .forms import LoginForm, SolicitudContactoForm, UserForm 
 from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -79,3 +80,7 @@ def login(request):
     else:
         form=LoginForm()
         return render(request,'eccomerce/login.html',{'form':form})
+
+@login_required(login_url="/login")
+def welcome(request):
+    return render(request, 'eccomerce/welcome.html')

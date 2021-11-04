@@ -12,5 +12,6 @@ urlpatterns = [
     path('solicitar_contacto/', views.solicitar_contacto),
     path('contacto_second/', views.contacto_second),
     path('crea_cliente/', views.add_user),
-    path('login/', views.login)
+    path('login/', views.login),
+    path('welcome', views.welcome)
 ]
