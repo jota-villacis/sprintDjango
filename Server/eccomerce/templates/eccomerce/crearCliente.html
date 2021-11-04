@@ -1,12 +1,10 @@
 {% extends 'eccomerce/index.html' %}
 {% block content %}
 
-<form action="/contacto_second/" method="POST">
+<form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <button>SEND</button>
+    <button>Send</button>
 </form>
-
-{{respuesta}}
 
 {% endblock %}

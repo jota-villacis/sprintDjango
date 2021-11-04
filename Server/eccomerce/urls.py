@@ -9,6 +9,8 @@ urlpatterns = [
     path('pago/', views.pago),
     path('usuarios/', views.usuarios),
     path('contacto/', views.contacto),
-    path('solicitarContacto', views.solicitarContacto),
-    path('contacto2/', views.contacto2)
+    path('solicitar_contacto/', views.solicitar_contacto),
+    path('contacto_second/', views.contacto_second),
+    path('crea_cliente/', views.add_user),
+    path('login/', views.login)
 ]

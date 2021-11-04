@@ -1,7 +1,8 @@
 from django import forms
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import User
-from .forms import SolicitudContactoForm
+from .forms import LoginForm, SolicitudContactoForm, UserForm 
+from django.contrib.auth import authenticate, login as auth_login
 
 # Create your views here.
 
@@ -21,7 +22,7 @@ def usuarios(request):
 def contacto(request):
     return render(request, 'eccomerce/contacto.html')
 
-def solicitarContacto(request):
+def solicitar_contacto(request):
     datos=request.POST
     email=datos["email"]
     reclamo=datos["reclamo"]
@@ -34,7 +35,7 @@ def solicitarContacto(request):
     #print(name,last_name,email,city,description)
     return render(request, 'eccomerce/contacto.html', {"mensaje":"Datos Recibidos","email":email,"reclamo":reclamo})
 
-def contacto2(request):
+def contacto_second(request):
     if request.method == "POST":
         form=SolicitudContactoForm(data=request.POST)
         email=form["email"]
@@ -43,3 +44,38 @@ def contacto2(request):
     else:
         form = SolicitudContactoForm()
         return render(request, 'eccomerce/contactoDjango.html', {"form":form})
+
+
+# def contacto_second(request, *args, **kwargs):
+#     form=SolicitudContactoForm(request.POST or None)
+#     if form.is_valid():
+#         print(request.POST)
+#         print(form.cleaned_data)
+#     return render(request, "eccomerce/contactoDjango.html", {"forms": form})
+
+
+def add_user(request):
+    if request.method == 'POST':
+        form = UserForm(data=request.POST)
+        if form.is_valid():
+            usuario = form.save(commit=False)
+            #Guardado en DB
+            usuario.save()
+        return redirect('/usuarios/')
+    else:
+        form = UserForm()
+        return render(request, 'eccomerce/crearCliente.html', {"form": form})
+
+def login(request):
+    if request.method == 'POST':
+        form=LoginForm(data=request.POST)
+        if form.is_valid():
+            usuario=form.cleaned_data["nombre"]
+            passwd=form.cleaned_data["password"]
+            user=authenticate(request,username=usuario,password=passwd)
+            if user is not None:
+                auth_login(request,user)
+        return render(request,'eccomerce/welcome.html',{'user':user})
+    else:
+        form=LoginForm()
+        return render(request,'eccomerce/login.html',{'form':form})
