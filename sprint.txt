@@ -1,0 +1,16 @@
+Desarrollo
+
+El proyecto debe tener levantado al menos 2 templates, tal como fue revisado en la sesión 'Despliegue de Contenido Dinámico'. Manejar adecuadamente los archivos STATICS.
+Recordar cargarlos en los templates para que se carguen y sean visibles. Se recomienda integrar bootstrap y extender las plantillas con block-content. Esto sera útil para
+no repetir el código y volver su aplicación más flexible ante cambios.
+
+Las URL del proyecto deben estar configuradas por aplicación, debe poseer un archivo views.py con todas las vistas que su proyecto requiere.
+
+El ejercicio debe tener un formulario levantado mediante las funcionalidades que nos entrega Django para facilitar el proceso. Para esto elaborar un archivo forms.py.
+
+Además, el proyecto debe incluir un sistema de login-logout con permisos diferenciados entre al menos 2 grupos de usuarios.
+
+Por último, incluye un sistema de registro de usuarios. Cada usuario al registrarse debe seleccionar el grupo al que pertenece. Para esto debe revisar la cápsula 6: 'El Sitio Administrativo de Django'.
+
+Actulizar Repositorio de GitHub.
+
