@@ -13,5 +13,7 @@ urlpatterns = [
     path('contacto_second/', views.contacto_second),
     path('crea_cliente/', views.add_user),
     path('login/', views.login),
-    path('welcome', views.welcome)
+    path('welcome', views.welcome),
+    path('salir',views.end_session),
+    path('createuser', views.create_user)
 ]

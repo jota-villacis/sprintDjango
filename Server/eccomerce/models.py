@@ -18,3 +18,5 @@ class Product(models.Model):
     unit_price=models.IntegerField()
 
 
+
+

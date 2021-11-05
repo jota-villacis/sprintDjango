@@ -21,3 +21,12 @@ class ProducForm(forms.ModelForm):
 class LoginForm(forms.Form):
     nombre=forms.CharField(widget=forms.TextInput)
     password=forms.CharField(widget=forms.PasswordInput)
+
+class AppUserForm(forms.Form):
+    nombre=forms.CharField(widget=forms.TextInput)
+    email=forms.CharField(widget=forms.EmailInput)
+    password=forms.CharField(widget=forms.PasswordInput)
+
+
+
+
